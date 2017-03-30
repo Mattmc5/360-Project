@@ -1,0 +1,189 @@
+* {
+  font-family: Tahoma, Geneva, sans-serif
+}
+
+body {
+  margin: auto;
+  width: 85%;
+  padding: 0px;
+
+}
+
+.container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+                          border: 0px solid gray;
+                          border-radius: .25em;
+}
+
+#masthead {
+  overflow: hidden;
+  position: relative;
+  padding: 0em;
+  margin: .5em .5em 0em .5em;
+  background-color: white;
+                        border: 1px solid gray;
+                        border-radius: .25em;
+
+}
+
+/* Left side menu content */
+input {
+  width: 100%;
+  padding-right: 0em;
+  margin-right: 0em;
+  box-sizing: border-box;
+}
+
+
+h4 {
+  padding-right: 0px;
+  padding-top: 0px;
+  margin: 0px;
+  font-weight: normal;
+  padding-bottom: .89em;
+  color: #ff884d;
+  background-color: none;
+}
+
+#leftContent {
+  top: 0;
+  float: left;
+  width: 250px;
+  margin: .5em .5em 2.5em .5em;
+  padding: .25em;
+  clear: right;
+                          border: 1px solid gray;
+                          border-radius: .25em;
+}
+
+#stuff {
+  margin: 1.5em 0em 1.5em 0em ;
+  padding: .25em;
+  border: 0px solid black;
+  border-radius: 0em;
+  overflow-y: auto;
+}
+
+#searchForm {
+  padding: 0px;
+  margin: 0px;
+}
+
+#loginForm {
+
+}
+
+#search{
+  padding-top: .5em;
+  padding-bottom: .5em;
+  padding-right: 0em;
+  padding-right: 70px;
+  width: 86%;
+  border-right-style: none;
+  border-color: #DCDCDC;
+}
+
+#searchbtn {
+  border-style: inset;
+  border-left-style: none;
+  float: right;
+  margin-left: -70px;
+  width: 15%;
+  margin-left: -100px;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  padding-left: .5em;
+  padding-right: .5em;
+  background: url(../images/searchbtn.jpg);
+  border-radius: 2px;
+  background-size: 75% 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#btnL {
+  float: left;
+  position: relative;
+}
+
+.btn {
+  width: 100%;
+
+}
+
+/* Nav content */
+
+#navHeader {
+  margin: .5em .5em .5em 275px;
+  padding: .25em;
+                          border: 1px solid gray;
+                          border-radius: .25em;
+}
+
+nav, ul {
+  list-style-type: none;
+  padding-left: .1em;
+  margin: 0px;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: #ff884d;
+}
+
+a:visited {
+  color: #80ccff;
+}
+
+a:hover {
+  color: white;
+}
+
+/* Middle content */
+
+#bodyContent {
+  margin-left: 275px;
+  margin-right: .5em;
+  margin-bottom: 2.5em;
+  padding: .25em;
+  overflow: hidden;
+                          border: 1px solid gray;
+                          border-radius: .25em;
+
+}
+
+/* Footer Content */
+
+footer {
+  position: absolute;;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-left: .5em;
+  margin-right: .5em;
+  margin-top: 2.5em;
+  padding: .25em;
+  text-align: center;
+
+                        border: 1px solid gray;
+                        border-radius: .25em;
+}
+
+/* REG FORMS PAGE LAYOUT */
+
+#regFormLeft {
+  float: left;
+  width: 49%;
+}
+
+#regFromRight {
+ float: right;
+ width: 49%;
+}
