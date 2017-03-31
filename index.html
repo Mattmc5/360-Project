@@ -4,7 +4,7 @@
     <title>Discussion Board</title>
     <meta charset="utf-8">
     <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="/script.js"></script>
 </head>
 
 <body>
@@ -17,10 +17,10 @@
       <form method="post" action="#" id="searchForm" >
         <input type="text" placeholder="search" id="search" class="textfield" ><input type="submit" value="" id="searchbtn" >
       </form>
-      <form method="post" action="#" id="loginForm">
-        <input type="text" placeholder="e-mail" name="email"></input>
-        <input type="text" placeholder="password" name="password"></input>
-        <input type="submit" value="login" class="btn" id="btnL"></input>
+      <form method="post" action="php/login.php" id="loginForm">
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <input type="submit" value="login" class="btn" id="btnL">
         <br><p><a href="register.html">login or sign up?</a></p>
       </form>
     <div id="stuff">
@@ -34,9 +34,9 @@
     <div id="navHeader">
       <nav>
         <ul>
-          <li><a href="index.html">home /</a></li>
-          <li><a href="#">new /</a></li>
-          <li><a href="#">top /</a></li>
+          <li><a href="index.html">home </a>/</li>
+          <li><a href="#">new </a>/</li>
+          <li><a href="#">top </a>/</li>
           <li><a href="#">post</a></li>
         </ul>
       </nav>

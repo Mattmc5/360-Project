@@ -2,14 +2,14 @@ window.onload = addListeners;
 
   function addListeners(){
     document.getElementsByClassName('btn').item(0).addEventListener("click", subEvent,false)
-    document.getElementsByName('textfield').item(0).addEventListener("keypress", textEvent, false);
+    document.getElementsByName('username').item(0).addEventListener("keypress", textEvent, false);
     document.getElementsByName('email').item(0).addEventListener("keypress", emailEvent, false);
     document.getElementsByName('password').item(0).addEventListener("click", passwordEvent, false);
 }
 
-  function textEvent(e){
-    var text =  document.getElementsByName('text').item(0);
-    text.style.background = "#9ae59a";
+  function userEvent(e){
+    var user =  document.getElementsByName('username').item(0);
+    user.style.background = "#9ae59a";
 }
 
   function emailEvent(e){
@@ -34,7 +34,14 @@ window.onload = addListeners;
       if (vemail == ""){
         email.style.background = "#ff6666";
         e.preventDefault();
-      }
+
+
+          var username =  document.getElementsByName('username').item(0);
+          var vusername =  email.value;
+          if (vusername == ""){
+              username.style.background = "#ff6666";
+              e.preventDefault();
+          }
 
     var password = document.getElementsByName('password').item(0);
     var vpassword = password.value;
@@ -47,10 +54,5 @@ window.onload = addListeners;
         e.preventDefault();
       }
 
-      var text =  document.getElementsByName('text').item(0);
-      var vtext =  text.value;
-        if(vtext == ""){
-          text.style.background = "#ff6666";
-      }
 
 }

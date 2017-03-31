@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<p>Here are some results:</p>
 
 <?php
 
@@ -10,11 +6,10 @@ $database = "360project";
 $user = "root";
 $password = "";
 
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
+$name = $_POST['name'];
 $username = $_POST['username'];
 $email = $_POST['email'];
-$passwordForm = $_POST['password'];
+$passwordForm = md5($_POST['password']);
 
 
 $connection = mysqli_connect($host, $user, $password, $database);
@@ -28,16 +23,16 @@ if($error != null)
 else
 {
 
-  $sql = "SELECT * FROM users WHERE username LIKE '$username' or email LIKE '$email'";
+  $sql = "SELECT * FROM user WHERE username LIKE '$username' or email LIKE '$email'";
   $results = mysqli_query($connection, $sql);
 
   if($row = mysqli_fetch_assoc($results) == 0) {
 
-    $sql = "INSERT INTO users (firstname,	lastname,	username,	email,
-                password) VALUES (?,?,?,?,?)";
+    $sql = "INSERT INTO user (username, name, email,
+                password) VALUES (?,?,?,?)";
 
     $stmt = mysqli_prepare($connection, $sql);
-    $stmt->bind_param("sssss", $username, $firstname, $lastname, $email, md5($passwordForm));
+    $stmt->bind_param("ssss", $username, $name,  $email, $passwordForm);
     $stmt->execute();
 
 
@@ -45,10 +40,8 @@ else
 else {
 
   echo 'The User Name or E-mail already exists!';
-  echo '<br><a href="lab8-1.html">Return to user entry.</a>';
   mysqli_close($connection);
 
   }
 }
 ?>
-</html>
