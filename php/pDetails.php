@@ -38,7 +38,7 @@ if ($error != null) {
     mysqli_stmt_close($stmt);
 // release the statement
 
-
+    echo "Welcome <a href='profile.php'>".$_SESSION['login_user']."</a></br></br>";
     echo '<img src="data:image/' . $type . ';base64,' . base64_encode($image) . '"/>';
 
 }

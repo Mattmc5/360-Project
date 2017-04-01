@@ -88,16 +88,17 @@ if (isset($_SESSION['login_user'])) {
                         <li><a href="index.php">home </a>/</li>
                         <li><a href="#">new </a>/</li>
                         <li><a href="#">top </a>/</li>
-                        <li><a href="#">post</a></li>
+                        <li><a href="post.php">post</a></li>
                     </ul>
                 </nav>
             </div>
 
             <article id="bodyContent">
-                <p>wooo</p>
-                <p>wooo</p>
-                <p>wooo</p>
-                <p>wooo</p>
+                <?php
+
+                    include 'php/showPost.php';
+
+                ?>
             </article>
 
             <footer>
