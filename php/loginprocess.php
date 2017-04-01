@@ -35,7 +35,6 @@ if ($error != null) {
         mysqli_free_result($results);
         mysqli_close($connection);
 
-   // }
 
 }
 ?>

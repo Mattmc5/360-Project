@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Matt
+ * Date: 01/04/2017
+ * Time: 11:26 AM
+ */
 
 if (isset($_SESSION['login_user'])) {
     $username = $_SESSION['login_user'];
@@ -7,12 +12,14 @@ if (isset($_SESSION['login_user'])) {
 
 include 'connection.php';
 
+$userID = $_POST['userID'];
+
 if ($error != null) {
     $output = "<p>Unable to connect to database!</p>";
     exit($output);
 } else {
 
-    $sqlID = "SELECT userID FROM user WHERE username LIKE '$username'";
+    $sqlID = "SELECT userID FROM user WHERE userID LIKE '$userID'";
     $stmtID = mysqli_prepare($connection, $sqlID);
     $stmtID->execute();
 
@@ -41,6 +48,6 @@ if ($error != null) {
 
     echo '<img src="data:image/' . $type . ';base64,' . base64_encode($image) . '"/>';
 
-}
 
+}
 ?>

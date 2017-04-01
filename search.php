@@ -3,7 +3,6 @@
 session_start();
 
 if (isset($_SESSION['login_user'])) {
-    echo $_SESSION['login_user'];
 
 }
 
@@ -40,11 +39,11 @@ if (isset($_SESSION['login_user'])) {
 
         <div id="stuff">
 
-        <?php
+            <?php
 
-        include 'php/pDetails.php';
+            include 'php/pDetails.php';
 
-        ?>
+            ?>
 
             <p><a href="php/logout.php">logout</a></p>
 
@@ -60,10 +59,6 @@ if (isset($_SESSION['login_user'])) {
         <div class="container">
             <div id="leftContent">
                 <h4><a href="index.php">my discussion board</a></h4>
-                <form method="post" action="search.php" id="searchForm" >
-                    <input type="text" placeholder="search" id="search" class="textfield" name="userID"><input type="submit" value=""
-                                                                                                 id="searchbtn">
-                </form>
                 <form method="post" action="php/loginprocess.php" id="loginForm">
                     <input type="text" placeholder="username" name="username">
                     <input type="password" placeholder="password" name="password">
@@ -94,10 +89,16 @@ if (isset($_SESSION['login_user'])) {
             </div>
 
             <article id="bodyContent">
-                <p>wooo</p>
-                <p>wooo</p>
-                <p>wooo</p>
-                <p>wooo</p>
+
+                <form method="post" action="search.php" id="searchForm" >
+                    <label>search</label>
+                    <input type="text" id="search" class="textfield" name="userID"><input type="submit" value="" id="searchbtn">
+                </form>
+                <?php
+
+                include 'php/searchBar.php';
+
+                ?>
             </article>
 
             <footer>
