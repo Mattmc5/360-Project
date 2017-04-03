@@ -4,6 +4,8 @@ session_start();
 
 if (isset($_SESSION['login_user'])) {
 
+} else {
+    session_destroy();
 }
 
 ?>
@@ -33,8 +35,9 @@ if (isset($_SESSION['login_user'])) {
     <div id="leftContent">
         <h4><a href="index.php">my discussion board</a></h4>
         <form method="post" action="search.php" id="searchForm">
-            <input type="text" placeholder="search" id="search" class="textfield" name="userID"><input type="submit" value=""
-                                                                                         id="searchbtn">
+            <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit"
+                                                                                                        value=""
+                                                                                                        id="searchbtn">
         </form>
 
         <div id="stuff">
@@ -89,16 +92,19 @@ if (isset($_SESSION['login_user'])) {
             </div>
 
             <article id="bodyContent">
-
-                <form method="post" action="search.php" id="searchForm" >
-                    <label>search</label>
-                    <input type="text" id="search" class="textfield" name="userID"><input type="submit" value="" id="searchbtn">
-                </form>
+                <div id="votePost">
+                <div id="postContainer">
+                    <form method="post" action="search.php" id="searchForm">
+                        <input type="text" id="searchBar" class="textfield" name="keyword"><input type="submit" value="search"
+                                                                                               id="searchPageBtn">
+                    </form>
+                </div>
                 <?php
 
                 include 'php/searchBar.php';
 
                 ?>
+                </div>
             </article>
 
             <footer>

@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['login_user'])) {
-   $_SESSION['login_user'];
+
 
 } else {
     session_destroy();
@@ -19,6 +19,7 @@ if (isset($_SESSION['login_user'])) {
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -38,16 +39,16 @@ if (isset($_SESSION['login_user'])) {
         <h4><a href="index.php">my discussion board</a></h4>
         <form method="post" action="search.php" id="searchForm">
             <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit" value=""
-                                                                                         id="searchbtn">
+                                                                                                        id="searchbtn">
         </form>
 
         <div id="stuff">
 
-        <?php
+            <?php
 
-        include 'php/pDetails.php';
+            include 'php/pDetails.php';
 
-        ?>
+            ?>
 
             <p><a href="php/logout.php">logout</a></p>
 
@@ -99,7 +100,19 @@ if (isset($_SESSION['login_user'])) {
             <article id="bodyContent">
                 <?php
 
-                    include 'php/showPost.php';
+
+
+                include 'php/editProfile.php';
+
+
+
+                /*                if ($_SERVER['QUERY_STRING'] == 1){
+                                    include 'php/pDetailsMain.php';
+                                }
+                                if ($_SERVER['QUERY_STRING'] == 2){
+                                    include 'php/editProfile.php';
+                                }*/
+
 
                 ?>
             </article>

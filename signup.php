@@ -16,7 +16,7 @@
     <div id="leftContent">
         <h4><a href="index.php">my discussion board</a></h4>
         <form method="post" action="search.php" id="searchForm" >
-            <input type="text" placeholder="search" id="search" class="textfield" name="userID"><input type="submit" value=""
+            <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit" value=""
                                                                                                        id="searchbtn">
         </form>
         <form method="post" action="php/loginprocess.php" id="loginForm">

@@ -1,28 +1,31 @@
 <html>
 <?php
 
+session_start();
+
+
 include 'connection.php';
 
 $name = $_POST['name'];
-$username = $_POST['username'];
+$username = $_SESSION['login_user'];
 $email = $_POST['email'];
-$passwordForm = md5($_POST['password']);
+
+echo $username;
 
 if ($error != null) {
     $output = "<p>Unable to connect to database!</p>";
     exit($output);
 } else {
 
-    $sql = "SELECT * FROM user WHERE username LIKE '$username' or email LIKE '$email'";
+    $sql = "SELECT * FROM user WHERE username LIKE '$username'";
     $results = mysqli_query($connection, $sql);
 
-    if ($row = mysqli_fetch_assoc($results) == 0) {
+    $row = mysqli_fetch_assoc($results);
 
-        $sql = "INSERT INTO user (username, name, email,
-                password) VALUES (?,?,?,?)";
+        $sql = "UPDATE user SET name = ?, email = ? WHERE username = ?";
 
         $stmt = mysqli_prepare($connection, $sql);
-        $stmt->bind_param("ssss", $username, $name, $email, $passwordForm);
+        $stmt->bind_param("sss", $name, $email, $username);
         $stmt->execute();
 
         $sqlID = "SELECT userID FROM user WHERE username LIKE '$username'";
@@ -81,7 +84,7 @@ if ($error != null) {
             $imagedata = file_get_contents($_FILES['fileToUpload']['tmp_name']);
             //store the contents of the files in memory in preparation for upload
 
-            $sqlIMG = "INSERT INTO userimages (userID, contentType, image) VALUES(?,?,?)";
+            $sqlIMG = "UPDATE userimages SET contentType = ?, image = ?  WHERE userID = ?";
             // create a new statement to insert the image into the table. Recall
             // that the ? is a placeholder to variable data.
 
@@ -90,7 +93,7 @@ if ($error != null) {
             mysqli_stmt_prepare($stmtIMG, $sqlIMG); // register the query
 
             $null = NULL;
-            mysqli_stmt_bind_param($stmtIMG, "isb", $userID, $imageFileType, $null);
+            mysqli_stmt_bind_param($stmtIMG, "sbi", $null, $imageFileType, $userID);
             // bind the variable data into the prepared statement. You could replace
             // $null with $data here and it also works. You can review the details
             // of this function on php.net. The second argument defines the type of
@@ -113,14 +116,11 @@ if ($error != null) {
             }
         }
 
-        header("Location: ../index.php");
+        header("Location: ../profile.php");
 
-    } else {
 
-        echo 'The User Name or E-mail already exists!';
         mysqli_close($connection);
 
-    }
 }
 ?>
 
