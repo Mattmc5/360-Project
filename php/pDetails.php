@@ -25,7 +25,6 @@ if ($error != null) {
 
         $userID = $row['userID'];
 
-
  /*     $q = "SELECT image FROM userImages WHERE userID LIKE '$userID' ";
         $qstmt = mysqli_prepare($connection, $q);
         $qstmt->execute();
@@ -37,7 +36,6 @@ if ($error != null) {
             echo '<img src="data:image/jpeg;base64,' . base64_encode($img) . '" height="200px" width="200px" />' . "<br><br>";
         }
 */
-
 
     }
 

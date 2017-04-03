@@ -38,7 +38,8 @@ if (isset($_SESSION['login_user'])) {
     <div id="leftContent">
         <h4><a href="index.php">my discussion board</a></h4>
         <form method="post" action="search.php" id="searchForm">
-            <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit" value=""
+            <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit"
+                                                                                                        value=""
                                                                                                         id="searchbtn">
         </form>
 
@@ -54,7 +55,6 @@ if (isset($_SESSION['login_user'])) {
 
         </div>
 
-
         <?php }
 
         else {
@@ -65,8 +65,9 @@ if (isset($_SESSION['login_user'])) {
             <div id="leftContent">
                 <h4><a href="index.php">my discussion board</a></h4>
                 <form method="post" action="search.php" id="searchForm">
-                    <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit" value=""
-                                                                                                                id="searchbtn">
+                    <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input
+                            type="submit" value=""
+                            id="searchbtn">
                 </form>
                 <form method="post" action="php/loginprocess.php" id="loginForm">
                     <input type="text" placeholder="username" name="username">
@@ -100,19 +101,7 @@ if (isset($_SESSION['login_user'])) {
             <article id="bodyContent">
                 <?php
 
-
-
                 include 'php/editProfile.php';
-
-
-
-                /*                if ($_SERVER['QUERY_STRING'] == 1){
-                                    include 'php/pDetailsMain.php';
-                                }
-                                if ($_SERVER['QUERY_STRING'] == 2){
-                                    include 'php/editProfile.php';
-                                }*/
-
 
                 ?>
             </article>
