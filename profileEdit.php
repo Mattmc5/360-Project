@@ -2,12 +2,18 @@
 
 session_start();
 
-if (isset($_SESSION['login_user'])) {
-
-
-} else {
-    session_destroy();
+if (isset($_SESSION['login_user']) ) {
+    $_SESSION['login_user'];
 }
+
+if (isset($_SESSION['admin']) ) {
+    $_SESSION['admin'];
+}
+
+if (isset($_SESSION['priv']) ) {
+    $_SESSION['priv'];
+}
+
 
 ?>
 

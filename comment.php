@@ -12,6 +12,12 @@ if (isset($_SESSION['priv']) ) {
     $_SESSION['priv'];
 }
 
+if(isset($_GET['pId'])) {
+    $pId = $_GET['pId'];
+} else {
+    header("location: index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +27,7 @@ if (isset($_SESSION['priv']) ) {
     <meta charset="utf-8">
     <link href="css/style.css" rel="stylesheet">
     <script type="text/javascript" src="/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,12 +42,12 @@ if (isset($_SESSION['login_user'])) {
 ?>
 
 
+
 <div class="container">
     <div id="leftContent">
         <h4><a href="index.php">my discussion board</a></h4>
         <form method="post" action="search.php" id="searchForm">
-            <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit"
-                                                                                                        value=""
+            <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit" value=""
                                                                                                         id="searchbtn">
         </form>
 
@@ -66,6 +73,10 @@ if (isset($_SESSION['login_user'])) {
         <div class="container">
             <div id="leftContent">
                 <h4><a href="index.php">my discussion board</a></h4>
+                <form method="post" action="search.php" id="searchForm">
+                    <input type="text" placeholder="search" id="search" class="textfield" name="keyword"><input type="submit" value=""
+                                                                                                                id="searchbtn">
+                </form>
                 <form method="post" action="php/loginprocess.php" id="loginForm">
                     <input type="text" placeholder="username" name="username">
                     <input type="password" placeholder="password" name="password">
@@ -96,19 +107,11 @@ if (isset($_SESSION['login_user'])) {
             </div>
 
             <article id="bodyContent">
-                <div id="votePost">
-                <div id="postContainer">
-                    <form method="post" action="search.php" id="searchForm">
-                        <input type="text" id="searchBar" class="textfield" name="keyword"><input type="submit" value="search"
-                                                                                               id="searchPageBtn">
-                    </form>
-                </div>
                 <?php
 
-                include 'php/searchBar.php';
+                include 'php/post_comment.php';
 
                 ?>
-                </div>
             </article>
 
             <footer>

@@ -82,11 +82,19 @@ if ($error != null) {
                    </div>
                </div>
 
+               <?php
+
+               $pId = $row['postID'];
+
+               ?>
+
                <div class="post-container" id="postContainer">
-                   <h1><?php echo $row['title'] ?></h1>
-                   <h2><?php echo $row['postID'] ?></h2>
-                   <h2><?php echo $row['username'] ?></h2>
-                   <p><?php echo $row['content'] ?></p>
+                   <?php
+                   echo "<h4 id=postTitle><a href=comment.php?pId=$pId>".$row['title']."</a></h4>";
+                   ?>
+                   <h5>post #<?php echo $row['postID'] ?></h5>
+                   <h6>posted by:   <?php echo $row['username'] ?></h6>
+<!--               <p>--><?php //echo $row['content'] ?><!--</p>-->
                </div>
            </div>
 

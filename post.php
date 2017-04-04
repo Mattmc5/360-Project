@@ -2,13 +2,16 @@
 
 session_start();
 
-if (isset($_SESSION['login_user'])) {
+if (isset($_SESSION['login_user']) ) {
     $_SESSION['login_user'];
-
-}  else {
-    session_destroy();
 }
-
+if (isset($_SESSION['admin']) ) {
+    $_SESSION['admin'];
+}
+if (isset($_SESSION['priv']) ) {
+    $_SESSION['priv'];
+    echo $_SESSION['priv'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -98,14 +101,14 @@ if (isset($_SESSION['login_user'])) {
 
             <?php
 
-            if (isset($_SESSION['login_user'])) {
+            if (isset($_SESSION['login_user']) && !isset($_SESSION['priv'])) {
 
             ?>
 
             <article id="bodyContent">
                 <form method="post" action="php/newPost.php" id="post">
                     <h4 id="postH4">create new post</h4>
-                    <input type="text" placeholder="title" id="postTitle" name="post"><br>
+                    <input type="text" placeholder="title" id="newTitle" name="post"><br>
                     <textarea rows="4" cols="50" id="newPost" form="post" placeholder="create your post ... " name="postContent"></textarea>
                     <input type="submit" value="post" class="btn">
                 </form>
@@ -113,15 +116,32 @@ if (isset($_SESSION['login_user'])) {
 
             <?php }
 
-            else {
+            else if(isset($_SESSION['priv'])) {
 
                 ?>
 
                 <article id="bodyContent">
                     <form method="post" action="php/newPost.php" id="post">
                         <h4 id="postH4">create new post</h4>
-                        <input type="text" disabled="disabled" placeholder="title" id="postTitle" name="post"><br>
-                        <textarea disabled="disabled" rows="4" cols="50" id="newPost" form="post" placeholder="" name="postContent">you must be logged in to create a new post.</textarea>
+                        <input type="text" disabled="disabled" placeholder="title" id="newTitle" name="post"><br>
+                        <textarea disabled="disabled" rows="4" cols="50" id="newPost" form="post" placeholder=""
+                                  name="postContent">your post privileges have been revoked</textarea>
+                        <input type="submit" value="post" class="btn" disabled="disabled">
+                    </form>
+                </article>
+
+                <?php
+
+            } else {
+
+                ?>
+
+                <article id="bodyContent">
+                    <form method="post" action="php/newPost.php" id="post">
+                        <h4 id="postH4">create new post</h4>
+                        <input type="text" disabled="disabled" placeholder="title" id="newTitle" name="post"><br>
+                        <textarea disabled="disabled" rows="4" cols="50" id="newPost" form="post" placeholder=""
+                                  name="postContent">you must be logged in to create a new post.</textarea>
                         <input type="submit" value="post" class="btn" disabled="disabled">
                     </form>
                 </article>
