@@ -79,32 +79,17 @@ if ($error != null) {
 
 
             $imagedata = file_get_contents($_FILES['fileToUpload']['tmp_name']);
-            //store the contents of the files in memory in preparation for upload
 
             $sqlIMG = "INSERT INTO userimages (userID, contentType, image) VALUES(?,?,?)";
-            // create a new statement to insert the image into the table. Recall
-            // that the ? is a placeholder to variable data.
 
-            $stmtIMG = mysqli_stmt_init($connection); //init prepared statement object
+            $stmtIMG = mysqli_stmt_init($connection); 
 
-            mysqli_stmt_prepare($stmtIMG, $sqlIMG); // register the query
+            mysqli_stmt_prepare($stmtIMG, $sqlIMG);
 
             $null = NULL;
             mysqli_stmt_bind_param($stmtIMG, "isb", $userID, $imageFileType, $null);
-            // bind the variable data into the prepared statement. You could replace
-            // $null with $data here and it also works. You can review the details
-            // of this function on php.net. The second argument defines the type of
-            // data being bound followed by the variable list. In the case of the
-            // blob, you cannot bind it directly so NULL is used as a placeholder.
-            // Notice that the parametner $imageFileType (which you created previously)
-            // is also stored in the table. This is important as the file type is
-            // needed when the file is retrieved from the database.
-
             mysqli_stmt_send_long_data($stmtIMG, 2, $imagedata);
-            // This sends the binary data to the third variable location in the
-            // prepared statement (starting from 0).
             $resultIMG = mysqli_stmt_execute($stmtIMG) or die(mysqli_stmt_error($stmtIMG));
-            // run the statement
 
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
